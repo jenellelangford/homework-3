@@ -5,19 +5,17 @@ var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 var specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', ':', '"', '<', '>', '?', '"'];
 var userPassword = [];
 
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 
-
 // Create function and prompts for password critera  
 function getPasswordOptions() {
   var passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
-    while (passwordLength < 8 || passwordLength > 128) {
-      alert("Password must be between 8 and 128 characters. Try again.");
-      var passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
-    }
+  while (passwordLength < 8 || passwordLength > 128) {
+    alert("Password must be between 8 and 128 characters. Try again.");
+    var passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
+  }
   var getSpecialCharacters = confirm("Would you like to use special characters?");
   var getNumbers = confirm("Would you like to use numbers?");
   var getLowerLetters = confirm("Would you like to use lowercase letters?");
@@ -30,43 +28,39 @@ function getPasswordOptions() {
     if (getSpecialCharacters == true) {
       (userPassword == userPassword.concat(specialCharacters));
     }
-    else {
-      (getSpecialCharacters == false);
-    }
-
+      else {
+        (getSpecialCharacters == false);
+      }
     if (getNumbers == true) {
       (userPassword == userPassword.concat(numbers));
     }
-    else {
-      (getNumbers == false);
-    }
-
+      else {
+        (getNumbers == false);
+      }
     if (getLowerLetters == true) {
       (userPassword = userPassword.concat(lowerCase));
     }
-    else {
-      (getLowerLetters == false);
-    }
-
+      else {
+        (getLowerLetters == false);
+      }
     if (getUpperLetters == true) {
       (userPassword = userPassword.concat(upperCase));
     }
-    else {
-      (getUpperLetters == false);
-    }
-
+      else {
+        (getUpperLetters == false);
+      }
   };
-
 };
 
 // Write password to the #password input
 function writePassword() {
   // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password");
 
   for (i = 0; i <= userPassword.length; i++) {
     password += userPassword[Math.floor(Math.random() * (userPassword.length - 1))];
   }
+    passwordText.value = password;
 };
 
 // Add event listener to generate button
