@@ -22,12 +22,32 @@ WHEN prompted for password criteria
 THEN I select which criteria to include in the password
 WHEN prompted for the length of the password
 THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN prompted for character types to include in the password
+
+WHEN prompted for character types to include in the password 
+  Confirm for lowercase - T/F?
+  Confirm for uppercase - T/F?
+  Confrim for numeric - T/F?
+  Confirm for special characters - T/F?
 THEN I choose lowercase, uppercase, numeric, and/or special characters
 WHEN I answer each prompt
 THEN my input should be validated and at least one character type should be selected
+
+
 WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
+  Create an array for [lowercase letters]
+  Create empty array that will hold all characters allower in the solution 
+
+  If user choose lowercase:
+  Add all the lowercase options to that array
+
+  We end up with ONE BIG array that makes all the possible characters in a solution 
+
+  Create an empty string for the final password
+  Loop from 1 to the number of characters in password // ex 100
+  Determine a random number between 0 and the length-1 of our one big array. 
+  Whatever the random index is, grab that value and add to password string. 
+
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
